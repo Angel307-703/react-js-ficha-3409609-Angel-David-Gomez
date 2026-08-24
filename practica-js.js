@@ -11,17 +11,17 @@ const productos = [
   { id: 10, nombre: 'Cable HDMI', precio: 25000, categoria: 'Accesorios', stock: 20 }
 ];
 
-const precioMayor100 = productos.filter(producto => producto.precio > 100000);
-console.log(precioMayor100);
+const hayAgotados = productos.some(producto => producto.stock === 0);
+console.log(hayAgotados);
 
-const precioRango = productos.filter(producto => producto.precio >= 50000 && producto.precio <= 200000);
-console.log(precioRango);
+const precioCaro = productos.some(producto => producto.precio > 1000000);
+console.log(precioCaro);
 
-const categoriaAudio = productos.filter(producto => producto.categoria === 'Audio');
-console.log(categoriaAudio);
+const preciosPositivos = productos.every(producto => producto.precio > 0);
+console.log(preciosPositivos);
 
-const productoId5 = productos.find(producto => producto.id === 5);
-console.log(productoId5);
+const stockValido = productos.every(producto => producto.stock >= 0);
+console.log(stockValido);
 
-const buscarProducto = (id) => productos.find(producto => producto.id === id);
-console.log(buscarProducto(3));
+const valorInventario = productos.reduce((total, producto) => total + (producto.precio * producto.stock), 0);
+console.log(valorInventario);
