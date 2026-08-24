@@ -1,33 +1,14 @@
-function sumar(a, b) {
-    return a + b;
-}
-console.log("Suma:", sumar(10, 5));
+const cuadrado = numero => numero * numero;
 
-function restar(a, b) {
-    return a - b;
-}
-console.log("Resta:", restar(20, 8));
+// 2. Convertir esMayorEdad(edad) a arrow function
+const esMayorEdad = (edad) => {
+    return edad >= 18;
+};
 
-function multiplicar(a, b) {
-    return a * b;
-}
-console.log("Multiplicación:", multiplicar(4, 5));
+// 3. Crear nombreCompleto(nombre, apellido) como arrow function
+const nombreCompleto = (nombre, apellido) => `${nombre} ${apellido}`;
 
-function dividir(a, b) {
-    return a / b;
-}
-console.log("División:", dividir(100, 4));
-
-function calcularPromedio(nota1, nota2, nota3) {
-    const promedio = (nota1 + nota2 + nota3) / 3;
-    return promedio;
-}
-console.log("Promedio:", calcularPromedio(4.5, 3.8, 5.0));
-
-/* 
-Diferencia entre console.log() y return
-- console.log(): Solo muestra un valor en la terminal para que nosotros lo veamos, 
-  pero la computadora no puede "usar" ese dato para otros cálculos después.
-- return: Envía el resultado de la función hacia afuera para que pueda ser 
-  guardado en una variable o utilizado por otra parte del código.
-*/
+// --- Ejecución y comprobación de resultados ---
+console.log("Resultado cuadrado (5):", cuadrado(5));          // Esperado: 25
+console.log("Resultado mayor de edad (20):", esMayorEdad(20)); // Esperado: true
+console.log("Nombre completo:", nombreCompleto("Angel", "David"));
