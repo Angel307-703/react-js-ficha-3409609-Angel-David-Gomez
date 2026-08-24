@@ -1,14 +1,14 @@
-const cuadrado = numero => numero * numero;
+const productos = [
+  { id: 1, nombre: 'Mouse', precio: 50000, categoria: 'Perifericos', stock: 5 },
+  { id: 2, nombre: 'Teclado', precio: 90000, categoria: 'Perifericos', stock: 0 },
+  { id: 3, nombre: 'Monitor', precio: 650000, categoria: 'Pantallas', stock: 3 },
+  { id: 4, nombre: 'Audífonos', precio: 120000, categoria: 'Audio', stock: 10 },
+  { id: 5, nombre: 'Cámara Web', precio: 150000, categoria: 'Perifericos', stock: 2 },
+  { id: 6, nombre: 'Micrófono', precio: 250000, categoria: 'Audio', stock: 0 },
+  { id: 7, nombre: 'Disco Duro SSD', precio: 300000, categoria: 'Almacenamiento', stock: 8 },
+  { id: 8, nombre: 'Memoria RAM', precio: 180000, categoria: 'Componentes', stock: 15 },
+  { id: 9, nombre: 'Tarjeta de Video', precio: 1200000, categoria: 'Componentes', stock: 4 },
+  { id: 10, nombre: 'Cable HDMI', precio: 25000, categoria: 'Accesorios', stock: 20 }
+];
 
-// 2. Convertir esMayorEdad(edad) a arrow function
-const esMayorEdad = (edad) => {
-    return edad >= 18;
-};
-
-// 3. Crear nombreCompleto(nombre, apellido) como arrow function
-const nombreCompleto = (nombre, apellido) => `${nombre} ${apellido}`;
-
-// --- Ejecución y comprobación de resultados ---
-console.log("Resultado cuadrado (5):", cuadrado(5));          // Esperado: 25
-console.log("Resultado mayor de edad (20):", esMayorEdad(20)); // Esperado: true
-console.log("Nombre completo:", nombreCompleto("Angel", "David"));
+console.log("Listado de productos cargados:", productos);
