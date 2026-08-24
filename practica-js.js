@@ -11,4 +11,6 @@ const productos = [
   { id: 10, nombre: 'Cable HDMI', precio: 25000, categoria: 'Accesorios', stock: 20 }
 ];
 
-console.log("Listado de productos cargados:", productos);
+productos.forEach((producto, indice) => {
+  console.log(`${indice + 1}. ${producto.nombre} - $${producto.precio} - stock: ${producto.stock}`);
+});
