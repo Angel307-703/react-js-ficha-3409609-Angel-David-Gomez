@@ -11,14 +11,17 @@ const productos = [
   { id: 10, nombre: 'Cable HDMI', precio: 25000, categoria: 'Accesorios', stock: 20 }
 ];
 
-const nombres = productos.map(producto => producto.nombre);
-console.log(nombres);
+const precioMayor100 = productos.filter(producto => producto.precio > 100000);
+console.log(precioMayor100);
 
-const preciosConIva = productos.map(producto => producto.precio * 1.19);
-console.log(preciosConIva);
+const precioRango = productos.filter(producto => producto.precio >= 50000 && producto.precio <= 200000);
+console.log(precioRango);
 
-const nombresMayuscula = nombres.map(nombre => nombre.toUpperCase());
-console.log(nombresMayuscula);
+const categoriaAudio = productos.filter(producto => producto.categoria === 'Audio');
+console.log(categoriaAudio);
 
-const resumenProductos = productos.map(producto => `${producto.nombre} cuesta $${producto.precio}`);
-console.log(resumenProductos);
+const productoId5 = productos.find(producto => producto.id === 5);
+console.log(productoId5);
+
+const buscarProducto = (id) => productos.find(producto => producto.id === id);
+console.log(buscarProducto(3));
