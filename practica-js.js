@@ -11,17 +11,12 @@ const productos = [
   { id: 10, nombre: 'Cable HDMI', precio: 25000, categoria: 'Accesorios', stock: 20 }
 ];
 
-const hayAgotados = productos.some(producto => producto.stock === 0);
-console.log(hayAgotados);
+const productoCopia = {
+  ...productos[0],
+  precio: 45000,
+  stock: 12
+};
 
-const precioCaro = productos.some(producto => producto.precio > 1000000);
-console.log(precioCaro);
+const estado = productoCopia.stock > 0 ? 'Disponible' : 'Agotado';
 
-const preciosPositivos = productos.every(producto => producto.precio > 0);
-console.log(preciosPositivos);
-
-const stockValido = productos.every(producto => producto.stock >= 0);
-console.log(stockValido);
-
-const valorInventario = productos.reduce((total, producto) => total + (producto.precio * producto.stock), 0);
-console.log(valorInventario);
+console.log(`El producto ${productoCopia.nombre} ahora tiene un precio de $${productoCopia.precio} y su estado es: ${estado}`);
