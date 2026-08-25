@@ -6,7 +6,8 @@ import './App.css';
 function App() {
   const [busqueda, setBusqueda] = useState("");
   const [categoria, setCategoria] = useState("Todas");
-  const [soloDisponibles, setSoloDisponibles] = useState(false); // Punto 9
+  const [soloDisponibles, setSoloDisponibles] = useState(false);
+  const [orden, setOrden] = useState("defecto");
 
   const valorInventario = productos.reduce(
     (total, producto) => total + producto.precio * producto.stock,
@@ -16,16 +17,25 @@ function App() {
   const productosFiltrados = productos.filter(producto => {
     const coincideNombre = producto.nombre.toLowerCase().includes(busqueda.toLowerCase());
     const coincideCategoria = categoria === "Todas" || producto.categoria === categoria;
-    const coincideStock = !soloDisponibles || producto.stock > 0; // Punto 9
+    const coincideStock = !soloDisponibles || producto.stock > 0;
     
     return coincideNombre && coincideCategoria && coincideStock; 
+  });
+
+  const productosOrdenados = [...productosFiltrados].sort((a, b) => {
+    if (orden === "menor-mayor") {
+      return a.precio - b.precio;
+    } else if (orden === "mayor-menor") {
+      return b.precio - a.precio;
+    }
+    return 0;
   });
 
   return (
     <main className="contenedor">
       <h1>Tienda tecnológica</h1>
       
-      <p>Productos encontrados: {productosFiltrados.length}</p>
+      <p>Productos encontrados: {productosOrdenados.length}</p>
       <p>Valor del inventario: ${valorInventario}</p>
 
       <input
@@ -44,6 +54,15 @@ function App() {
         <option value="Pantallas">Pantallas</option>
       </select>
 
+      <select
+        value={orden}
+        onChange={(evento) => setOrden(evento.target.value)}
+      >
+        <option value="defecto">Sin orden</option>
+        <option value="menor-mayor">Menor precio primero</option>
+        <option value="mayor-menor">Mayor precio primero</option>
+      </select>
+
       <label>
         <input
           type="checkbox"
@@ -53,12 +72,12 @@ function App() {
         Mostrar únicamente disponibles
       </label>
 
-      {productosFiltrados.length === 0 ? (
+      {productosOrdenados.length === 0 ? (
         <p>No se encontraron productos.</p>
       ) : null}
 
       <section className="productos">
-        {productosFiltrados.map(producto => (
+        {productosOrdenados.map(producto => (
           <ProductoCard
             key={producto.id}
             producto={producto}
