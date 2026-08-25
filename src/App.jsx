@@ -24,3 +24,6 @@ function App() {
  ); 
 } 
 export default App;
+<button onClick={mostrarProducto}>
+Ver producto
+</button>
