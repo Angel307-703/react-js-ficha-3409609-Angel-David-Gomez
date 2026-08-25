@@ -15,7 +15,6 @@ function ProductoCard({ producto }) {
       <strong>{estado}</strong>
       <br />
       
-      {/* Puntos 3 y 4: Botón inteligente con evento */}
       <button 
         onClick={mostrarProducto} 
         disabled={stock === 0}

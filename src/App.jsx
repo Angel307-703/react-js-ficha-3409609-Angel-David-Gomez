@@ -59,8 +59,8 @@ function App() {
         onChange={(evento) => setOrden(evento.target.value)}
       >
         <option value="defecto">Sin orden</option>
-        <option value="menor-mayor">Menor precio primero</option>
-        <option value="mayor-menor">Mayor precio primero</option>
+        <option value="menor-mayor">Menor precio</option>
+        <option value="mayor-menor">Mayor precio</option>
       </select>
 
       <label>
